@@ -1,0 +1,31 @@
+---
+description: Core conventions for this repo
+alwaysApply: true
+---
+
+# Project rules
+
+
+---
+
+## Slides.com import
+
+The deck is authored in **`presentation-outline.md`** (YAML frontmatter for title/subtitle, then **`## Slide title`** headings in file order and two-space-indented **`-`** bullet lists). That file is **not** pasted directly into Slides.com.
+
+**Convert → importable Markdown**
+
+1. Run **`npm run present:slides-com`** (or `node scripts/export-slides-com.mjs [input.md] [out.md]`).
+2. Default output: **`dist/presentation-slides-com.md`**.
+
+**What the export does** (`scripts/export-slides-com.mjs` + `scripts/parse-outline.mjs`):
+
+- Builds a **Reveal.js–style** deck Slides.com accepts: slides separated by **`---`** on its own line; title slide uses **`#`** / **`##`** from frontmatter.
+- Each content slide is **`## <title>`** plus the bullet tree (markdown `**bold**` preserved).
+- **`<!-- slide-max-level: N -->`** (legacy **`pptx-max-level`**) limits how many indent levels appear **in the export**; deeper bullets stay only in the outline (use **`story.md`** when presenting).
+- **Multiline** **`<!--` … `-->`** blocks strip everything inside (including commented-out **`##`** slides) from the export.
+- Appendix headings **`## Optional:`**, **`## Build …`** are skipped.
+- **Speaker notes are omitted** — Slides.com’s Markdown path does not carry them reliably; use **`story.md`** for script.
+
+**Import:** open [Slides.com Markdown → presentation](https://slides.com/tools/markdown-to-presentation), paste or upload the generated **`.md`**, then edit theme/layout in their editor.
+
+Specification for markdown on slides.com is here: https://github.com/jlumbroso/slides.com-markdown-manual
