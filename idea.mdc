@@ -5,6 +5,23 @@ alwaysApply: true
 
 # Project rules
 
+This is a presentation of about 40 minutes (including questions) about our explorations in 
+- state -> who is the person interacting with our app
+- knowledge -> what is the (scientifically accurate) information in our app
+- prompting -> how can we create interesting ineraction between the app and the user 
+
+In the first version we focus no state and knowledge 
+
+Subject that should be in the presentation
+- the base project: a navigable presentation with immersive VR panoramas of the city hall of utrecht through the ages (user can switch between prefixed locations and times) and look around. We will use speech to text to caption the user prompts and present the answers through speech to text
+- the interaction: state is measured through the VR goggles: 
+  - looking direction (head orientation + optionally by using the pointer in vr space to indicate what the question is about), 
+  - current year, current location by pressing buttons the app. 
+  - prompts and answers through TTS / STT
+
+knowledge comes from digitized research reports and books. It is stored using RAG or other means, optionally using agent technology for improved knowledge finding.
+
+performance will be tested through a test set of predefined questions (evaluated by a knowledgable human)
 
 ---
 
